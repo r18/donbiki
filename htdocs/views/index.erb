@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+<style>
+  .tw-li{
+      list-style-type:none;
+  }
+</style>
+<body>  
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">ドン引き.com</a>
+        </div>
+      </div>
+    </div>
+  <div class="jumbotron">
+  <h1>ドン引き.com</h1>
+  <div class="container">
+          <h2> その驚き、世界へ </h2>
+          <p>
+          あなたのお友達を今すぐ、甘美なる羞恥プレイの世界へ招き入れましょう<br>
+          やり方は簡単、ドン引き.comとリプライを送るだけ
+          </p>
+  </div>
+  </div>
+  <ul class="container-fluid row-fluid">
+    <% @donbikis.each do |donbiki| %>
+      <li data-id="<%= donbiki.id%>" class="col-md-4 tw-li well">
+      <div class="">
+      <div class="donbik">
+        <%=URI.unescape(donbiki.oembed)%>
+      </div>
+      <!-- <div class"reply">
+        <%=URI.unescape(donbiki.repOembeds)%>
+      </div> -->
+      </div>
+      </li>
+    <% end %>
+  </ul>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
