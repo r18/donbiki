@@ -149,4 +149,4 @@ if __name__ == '__main__':
         search(sess)
         print datetime.datetime.today().strftime("[%Y-%m-%d %H:%M:%S]") + "finished crawling"
         con.close()
-        time.sleep(6)
+        time.sleep(180)
