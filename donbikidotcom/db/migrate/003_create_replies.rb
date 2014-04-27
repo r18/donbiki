@@ -1,6 +1,6 @@
-class CreateDtweets < ActiveRecord::Migration
+class CreateReplies < ActiveRecord::Migration
   def self.up
-    create_table :dtweets do |t|
+    create_table :replies do |t|
       t.string :user
       t.string :tweetId
       t.string :body
@@ -11,6 +11,6 @@ class CreateDtweets < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :dtweets
+    drop_table :replies
   end
 end

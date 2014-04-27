@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -26,6 +26,25 @@ ActiveRecord::Schema.define(version: 2) do
   create_table "dtweets", force: true do |t|
     t.string   "user"
     t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "replies", force: true do |t|
+    t.string   "user"
+    t.string   "tweetId"
+    t.string   "body"
+    t.string   "text"
+    t.string   "replyIds"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "userId"
+    t.string   "dtweetIds"
+    t.string   "replyIds"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
