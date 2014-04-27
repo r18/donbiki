@@ -7,6 +7,9 @@ module Donbikidotcom
 
     enable :sessions
 
+    get '/' do
+     render 'tweets/all' 
+    end
     ##
     # Caching support.
     #
