@@ -1,13 +1,5 @@
-Donbikidotcom::App.controllers :api do
-
-  post "/post_dtweet" do
-    @dtweet = Dtweet.new(params.require(:dtweet).permit(:user, :body, :text, :tweetId))
-    if @dtweet.save
-      puts "Success"
-    else 
-      puts "Error to save"
-    end 
-  end 
+Donbikidotcom::App.controllers :dtweet do
+  
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
   #   render 'index'
@@ -26,4 +18,6 @@ Donbikidotcom::App.controllers :api do
   # get '/example' do
   #   'Hello world!'
   # end
+  
+
 end

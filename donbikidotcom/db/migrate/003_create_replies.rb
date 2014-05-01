@@ -3,8 +3,8 @@ class CreateReplies < ActiveRecord::Migration
     create_table :replies do |t|
       t.string :user
       t.string :tweetId
-      t.string :body
-      t.string :text
+      t.text :body
+      t.text :text
       t.string :replyIds
       t.timestamps
     end

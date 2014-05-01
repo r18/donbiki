@@ -4,12 +4,30 @@ fieldset class='control-group#{error ? ' has-error' : ''}'
   div class='controls'
     = f.text_field :user, :class => 'form-control input-large input-with-feedback', :autofocus => true
     span class='help-inline' = error ? f.error_message_on(:user, :class => 'text-error') : pat(:example)
+- error = @dtweet.errors.include?(:tweetId)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :tweetId, :class => 'control-label'
+  div class='controls'
+    = f.text_field :tweetId, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:tweetId, :class => 'text-error') : pat(:example)
 - error = @dtweet.errors.include?(:body)
 fieldset class='control-group#{error ? ' has-error' : ''}'
   = f.label :body, :class => 'control-label'
   div class='controls'
     = f.text_field :body, :class => 'form-control input-large input-with-feedback'
     span class='help-inline' = error ? f.error_message_on(:body, :class => 'text-error') : pat(:example)
+- error = @dtweet.errors.include?(:text)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :text, :class => 'control-label'
+  div class='controls'
+    = f.text_field :text, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:text, :class => 'text-error') : pat(:example)
+- error = @dtweet.errors.include?(:replyIds)
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :replyIds, :class => 'control-label'
+  div class='controls'
+    = f.text_field :replyIds, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:replyIds, :class => 'text-error') : pat(:example)
 
 div class="form-actions"
   = f.submit pat(:save), :class => 'btn btn-primary'

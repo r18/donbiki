@@ -27,7 +27,10 @@ div class="tabs-content"
                       div class='btn btn-default btn-small cancel' = pat(:cancel)
         th class='header' = mat(:dtweet, :id)
         th class='header' = mat(:dtweet, :user)
+        th class='header' = mat(:dtweet, :tweetId)
         th class='header' = mat(:dtweet, :body)
+        th class='header' = mat(:dtweet, :text)
+        th class='header' = mat(:dtweet, :replyIds)
         th class='header' = mat(:dtweet, :created_at)
         th class='header' = mat(:dtweet, :updated_at)
         th class='header list-row-action-header'
@@ -38,7 +41,10 @@ div class="tabs-content"
           td class='list-column list-selectable' = check_box_tag 'dtweet_ids[]', :value => dtweet.id, :class => 'list-selectable-checkbox'
           td class='list-column' = dtweet.id
           td class='list-column' = dtweet.user
+          td class='list-column' = dtweet.tweetId
           td class='list-column' = dtweet.body
+          td class='list-column' = dtweet.text
+          td class='list-column' = dtweet.replyIds
           td class='list-column' = time_ago_in_words dtweet.created_at
           td class='list-column' = time_ago_in_words dtweet.updated_at
           td class='list-column list-row-action'
