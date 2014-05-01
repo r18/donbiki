@@ -1,0 +1,10 @@
+---
+:orm: activerecord
+:test: rspec
+:mock: none
+:script: jquery
+:renderer: slim
+:stylesheet: sass
+:namespace: Donbikidotcom
+:migration_format: number
+:admin_renderer: slim

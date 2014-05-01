@@ -1,5 +1,6 @@
 #coding: UTF-8
 from rauth import OAuth1Service
+import urllib
 import urllib2
 import sqlite3
 import daemon
@@ -110,20 +111,20 @@ def saveDonbiki(s,tweet,ids,oembeds):
     rep_emb = getOEmbed(s,tweet['id_str'],True)
     turn_emb= getOEmbed(s,tweet['in_reply_to_status_id'],False)
     if turn_emb != u'error' and rep_emb != u'error':
-        query = "insert into donbikiTweets(id,oembed,created,repIds,repOembeds) values(" +\
-        str(tweet[u'in_reply_to_status_id']) + ",\"" +\
-        urllib2.quote(turn_emb) + "\",\""+\
-        tweet[u'created_at'] + "\"," +\
-        tweet['id_str'] + ",\"" +\
-        urllib2.quote(rep_emb)  +\
-        "\")"
-            #query = "update donbikiTweets set turned = " + str(ct) +\
-            #        " where id = " + tweet['id_str']
-        con.execute(query)
-        print "update turned tweet : id =" + str(tweet[u'in_reply_to_status_id'])
-        return True
+      url = 'http://localhost:3000/api/post_dtweet'
+      values = {
+            'id' : str(tweet[u'in_reply_to_status_id']),
+            'body':turn_emb,
+            'repId':tweet[u'id_str'],
+            'rep_emb':rep_emb
+      }
+      data = urllib.urlencode(values)
+      req = urllib2.Request(url, data)
+      res = urllib2.urlopen(req)
+      print "update turned tweet : id =" + str(tweet[u'in_reply_to_status_id'])
+      return True
     else:
-        return False
+      return False
        
 
 def getOEmbed(s,tid,th):

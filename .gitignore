@@ -1,2 +1,4 @@
 config.ini
 Gemfile.lock
+DS_Store
+htdocs/tweets.db
